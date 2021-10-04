@@ -6,6 +6,15 @@ __pycache__/
 # C extensions
 *.so
 
+# latex bld files
+Paper/*.aux
+Paper/*.bbl
+Paper/*.blg
+Paper/*.bcf
+Paper/*.out
+Paper/*.xml
+
+
 Analyis/norm_ref.pkl
 
 # Distribution / packaging
