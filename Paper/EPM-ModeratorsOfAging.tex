@@ -64,9 +64,9 @@ age and as a result they reduce  the impact of factors that may moderate the rel
 epigenetic age. Here we compare the standard methods used to construct epigenetic clocks to an evolutionary 
 framework of epigenetic aging, the epigenetic pacemaker (EPM) that directly models DNA methylation as a 
 function of a time dependent epigenetic state. We show that the EPM is more sensitive than epigenetic clocks for 
-the detection of factors that moderate the relationship between actual age and epigenetic state (oe epigenetic age). 
+the detection of factors that moderate the relationship between actual age and epigenetic state (ie epigenetic age). 
 Specifically, we show that the EPM is more sensitive at detecting sex and cell type effects in a large aggregate 
-dataset and in an example case study is more sensitive sensitive at detecting age related methylation changes 
+data set and in an example case study is more sensitive sensitive at detecting age related methylation changes 
 associated with polybrominated biphenyl exposure.  Thus we find that the pacemaker provides a more robust 
 framework for the study of factors that impact epigenetic age acceleration than traditional clocks based on 
 linear regression models.
@@ -114,7 +114,7 @@ utilized for the identification of moderators that impact the association betwee
 (i.e factors that accelerate or decelerate the changes in epigenetic states with time).  To this end we extend the 
 EPM model to simulate methylation matrices associated with age and age accelerating phenotypes. We then evaluate the 
 ability of regularized regression and EPM models to detect age acceleration traits that have linear and nonlinear 
-associations with age.  Utilizing a large aggregate dataset we validate the simulation results and in one 
+associations with age.  Utilizing a large aggregate data set we validate the simulation results and in one 
 illustrative example further assess the ability of both approaches to detect age related methylation 
 changes associated with PBB exposure.
 
@@ -157,7 +157,7 @@ sites for all continuous traits were then simulated and 50 methylation sites for
 sites were simulated that were equally influenced by a mixture of four continuous traits and the simulated  binary 
 trait. The resulting simulation matrix contains 450 methylation sites. 
 
-Given a simulation dataset, the samples were split randomly in half for model training and testing. EPM and penalized 
+Given a simulation data set, the samples were split randomly in half for model training and testing. EPM and penalized 
 regression models were fit for each simulation training set and epigenetic state and age predictions were made for the 
 testing set. e then fit a regression model where the epigenetic age or state is dependent on the age, square-root of 
 the age, the health status, and binary trait status of the sample ($S_j  = Age + \sqrt{Age} + health_j + binary_j$). 
@@ -177,13 +177,13 @@ results.
 
 \subsection{Universal Blood EPM and Penalized Regression Models}
 
-We validated the simulation results using a  large aggregate dataset composed of Illumina 450k array 
+We validated the simulation results using a  large aggregate data set composed of Illumina 450k array 
 data\cite{Marabita2018-yi,Ventham2016-qj,Tan2014-ns,Johnson2020-vb,Voisin2015-ch,Soriano-Tarraga2016-tf,
 Dabin_undated-pr,Horvath2015-af,Kurushima2019-gc,Zannas2019-bc,Braun2019-gp,Demetriou2013-jx,Tserel2015-qr} 
-deposited in the Gene Expression Omnibus\cite{Barrett2012-gu} (GEO). All methylation array datasets were processed 
+deposited in the Gene Expression Omnibus\cite{Barrett2012-gu} (GEO). All methylation array data sets were processed 
 using a unified pipeline from raw array intensity data (IDAT) files using minfi (Aryee et al., 2014). Sex and blood 
 cell type abundance predictions were made for each processed as previously described\cite{Houseman2012-rr,Aryee2014-ky}. 
-The aggregate dataset contains 6,251 whole blood tissue samples representing 16 GEO series. 
+The aggregate data set contains 6,251 whole blood tissue samples representing 16 GEO series. 
 
 We trained EPM and penalized regression models using data assembled from four GEO 
 series\cite{Johansson2013-of,Liu2013-qo,Butcher2017-nr,Damaso2020-gd}  ($n=1605$) with samples spanning a wide age 
@@ -193,12 +193,12 @@ age to select 95\% of the samples for model training. The selected samples from 
 quantile normalized by probe type\cite{Horvath2013-sk} using the median site methylation values across all training 
 samples for each methylation site.  Principal component analysis (PCA) was performed on the cell type abundance 
 estimates using the training data. The trained PCA model was used to predict the cell type PCs for the testing 
-and validation datasets. 
+and validation data sets. 
 
 We fit a penalized regression model to the training matrix as follows. The normalized training methylation matrix was 
 first filtered to remove sites with a variance below 0.001, resulting in a training matrix with 183,114 sites. A 
 cross validated ($cv=5$) elastic net model was trained against training sample ages using the filtered methylation 
-matrix. The trained model performed well on the training ($R^2=0.981$) and testing ($R^2=0.940$) datasets (S.Figure 2). 
+matrix. The trained model performed well on the training ($R^2=0.981$) and testing ($R^2=0.940$) data sets (S.Figure 2). 
 
 In contrast to penalized regression based approaches, site selection for the EPM model is performed outside of model 
 fitting. Methylation sites were selected for model training if the absolute Pearson correlation coefficient between 
@@ -215,7 +215,7 @@ state and age relative to the EPM model fit with all sites initially selected by
 with an observed EPM and penalized regression MAE less than 6 ($n=5$) were combined to fit final EPM and penalized 
 regression models. This resembles the simulated methylation matrices where sites with differing functional forms are 
 modeled collectively. The combined cluster EPM and combined cluster regression model performed well on the training 
-and testing datasets (S.Figure 1). 
+and testing data sets (S.Figure 1). 
 
 We evaluated the combined cluster EPM, combined cluster penalized regression, and the full penalized regression models 
 against a validation data set consisting of 14 GEO series experiments representing 4,600 whole blood tissue samples. 
@@ -247,10 +247,10 @@ acceleration associated with PBB exposure.
 
 Briefly, 50\% of samples ($n=339$) were selected for model training using stratified cross validation by age. A 
 cross validated elastic net model was trained using all methylation sites with a site variance above 0.001, 
-($n=529,703$). The trained model performed well on the training and testing datasets 
+($n=529,703$). The trained model performed well on the training and testing data sets 
 ($R^2 = 1.00, R^2 = 0.740, S.Figure 2 A-B$). EPM sites were selected and models fit as described with the universal 
 blood EPM. Four EPM clusters ($MAE < 6$) were merged for a combined EPM model built using 413 CpG sites. The 
-combined EPM model performed well in training and testing datasets ($R^2 = 0.794, R^2 = 0.812, S.Figure 2 C-D$). 
+combined EPM model performed well in training and testing data sets ($R^2 = 0.794, R^2 = 0.812, S.Figure 2 C-D$). 
 Epigenetic age and epigenetic state predictions were then made for the testing samples using the penalized 
 regression and EPM models. 
 
@@ -275,7 +275,7 @@ cardiovascular disease\cite{Huang2019-hf} and mortality risk\cite{Marioni2015-sn
 While epigenetic clocks have proven to be useful they have significant limitations.  Because they are based on linear 
 models, it may be difficult to model aging when the underlying methylation changes are non-linear in time.  Moreover, 
 epigenetic clocks are prone to over fitting, and while cross validation schemes are often used to construct 
-robust clocks, they often do not yield accurate estimates for other datasets.  Finally, epigenetic clocks are not 
+robust clocks, they often do not yield accurate estimates for other data sets.  Finally, epigenetic clocks are not 
 very interpretable, and highly degenerate, so that it is difficult to extract biological insights from the weights 
 of the models.
 
@@ -371,7 +371,7 @@ described by ($y=0.66x + 3.718$).
 \subsection{Blood EPM and Penalized Regression Models}
 
 Methylation sites with an absolute Pearson correlation coefficient between methylation values and age greater than 
-0.40 and 0.45 for the unified whole blood and PBB datasets respectively were initially selected for EPM model 
+0.40 and 0.45 for the unified whole blood and PBB data sets respectively were initially selected for EPM model 
 training. A linear model was generated using numpy polyfit \cite{Harris2020-yb} with age and the independent 
 variable and methylation values as the dependent variable. Mean absolute error (MAE) was calculated as the mean 
 absolute difference between the observed and predicted meth values according to the site linear models. A vector 
