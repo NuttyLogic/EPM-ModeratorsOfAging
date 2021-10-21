@@ -62,6 +62,9 @@ coverage.xml
 .hypothesis/
 .pytest_cache/
 
+# python pickle file
+*.pkl
+
 # Translations
 *.mo
 *.pot
